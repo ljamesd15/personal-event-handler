@@ -2,3 +2,5 @@ spring:
   jackson:
     serialization:
       FAIL_ON_EMPTY_BEANS: false
+weather:
+  base-url: http://127.0.0.1:8080

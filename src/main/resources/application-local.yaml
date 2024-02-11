@@ -1,0 +1,10 @@
+server:
+  port: 8081
+rabbitmq:
+  host: localhost
+  port: 5672
+  username: guest
+  password: ${WEATHER_RABBITMQ_PASSWORD}
+  queueName: test-queue
+  topicName: test-topic
+  routingKey: foo.bar.#
