@@ -46,7 +46,6 @@
 			<version>${spring-rabbit.version}</version>
 		</dependency>
 
-
 		<!--    Logging   -->
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
