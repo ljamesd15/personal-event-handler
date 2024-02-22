@@ -4,6 +4,9 @@ import com.personal.eventhandler.handlers.EventHandler;
 import com.personal.eventhandler.model.weather.WeatherData;
 import com.personal.eventhandler.service.WeatherService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.amqp.rabbit.annotation.Exchange;
+import org.springframework.amqp.rabbit.annotation.Queue;
+import org.springframework.amqp.rabbit.annotation.QueueBinding;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.Payload;
@@ -23,7 +26,21 @@ public class WeatherEventHandler implements EventHandler<WeatherData> {
         this.weatherService = weatherService;
     }
 
-    @RabbitListener(queues = "${rabbitmq.queueName}")
+    @RabbitListener(
+            bindings = @QueueBinding(
+                    value = @Queue(
+                            name = "${rabbitmq.queueName}",
+                            durable = "true",
+                            autoDelete = "false"
+                    ),
+                    exchange = @Exchange(
+                            name = "${rabbitmq.exchangeName}",
+                            declare = "false"
+                    ),
+                    key = "${rabbitmq.routingKey}"
+            ),
+            errorHandler = "WeatherMessageErrorHandler"
+    )
     public void receiveMessage(@Payload final WeatherData weatherData) {
         this.weatherService.saveWeatherData(weatherData);
     }

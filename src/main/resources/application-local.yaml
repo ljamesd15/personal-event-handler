@@ -1,10 +1,7 @@
 server:
   port: 8081
+weather:
+  base-url: http://127.0.0.1:8080
 rabbitmq:
   host: localhost
-  port: 5672
-  username: guest
-  password: ${WEATHER_RABBITMQ_PASSWORD}
-  queueName: test-queue
-  topicName: test-topic
-  routingKey: foo.bar.#
+  password: ${WEATHER_RABBITMQ_SERVICE_PASSWORD}
