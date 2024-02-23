@@ -4,4 +4,5 @@ weather:
   base-url: http://127.0.0.1:8080
 rabbitmq:
   host: localhost
-  password: ${WEATHER_RABBITMQ_SERVICE_PASSWORD}
+  weather:
+    password: ${WEATHER_RABBITMQ_SERVICE_PASSWORD}

@@ -27,18 +27,32 @@ public class WeatherEventHandler implements EventHandler<WeatherData> {
     }
 
     @RabbitListener(
-            bindings = @QueueBinding(
-                    value = @Queue(
-                            name = "${rabbitmq.queueName}",
-                            durable = "true",
-                            autoDelete = "false"
+            bindings = {
+                    @QueueBinding(
+                            value = @Queue(
+                                    name = "${rabbitmq.weather.queueName}",
+                                    durable = "true",
+                                    autoDelete = "false"
+                            ),
+                            exchange = @Exchange(
+                                    name = "${rabbitmq.weather.exchangeName}",
+                                    declare = "false"
+                            ),
+                            key = "${rabbitmq.weather.routingKey}"
                     ),
-                    exchange = @Exchange(
-                            name = "${rabbitmq.exchangeName}",
-                            declare = "false"
+                    @QueueBinding(
+                            value = @Queue(
+                                    name = "${rabbitmq.weather.queueName}",
+                                    durable = "true",
+                                    autoDelete = "false"
+                            ),
+                            exchange = @Exchange(
+                                    name = "${rabbitmq.weather.errorExchangeName}",
+                                    delayed = "true"
+                            ),
+                            key = "${rabbitmq.weather.errorRoutingKey}"
                     ),
-                    key = "${rabbitmq.routingKey}"
-            ),
+            },
             errorHandler = "WeatherMessageErrorHandler"
     )
     public void receiveMessage(@Payload final WeatherData weatherData) {

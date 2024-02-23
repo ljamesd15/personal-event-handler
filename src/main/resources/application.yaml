@@ -4,8 +4,14 @@ spring:
       FAIL_ON_EMPTY_BEANS: false
 rabbitmq:
   port: 5672
-  username: WeatherService
-  vhost: weather
-  queueName: weather_queue
-  exchangeName: weather_exchange
-  routingKey: weather
+  weather:
+    username: WeatherService
+    vhost: weather
+    queueName: weather_queue
+    exchangeName: weather_exchange
+    routingKey: weather
+    errorRoutingKey: error.weather
+    parkingLotRoutingKey: fail.weather
+    errorExchangeName: weather_delay_exchange
+    parkingLotExchangeName: weather_parking_lot_exchange
+    parkingLotQueueName: weather_parking_lot_queue
