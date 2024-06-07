@@ -24,6 +24,7 @@
 		<spring-rabbit.version>3.1.1</spring-rabbit.version>
 		<spring-webflux.version>6.1.3</spring-webflux.version>
 		<logback.version>1.4.14</logback.version>
+		<weather-model.version>1.0-SNAPSHOT</weather-model.version>
 	</properties>
 	<dependencies>
 		<!--	Spring	-->
@@ -55,6 +56,13 @@
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
 			<version>${logback.version}</version>
+		</dependency>
+
+		<!--	Weather packages -->
+		<dependency>
+			<groupId>com.weather</groupId>
+			<artifactId>weather-model</artifactId>
+			<version>${weather-model.version}</version>
 		</dependency>
 
 		<!--	Other	-->

@@ -1,8 +1,8 @@
 package com.personal.eventhandler.handlers.impl;
 
 import com.personal.eventhandler.handlers.EventHandler;
-import com.personal.eventhandler.model.weather.WeatherData;
 import com.personal.eventhandler.service.WeatherService;
+import com.weather.model.external.WeatherData;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.Exchange;
 import org.springframework.amqp.rabbit.annotation.Queue;

@@ -1,8 +1,8 @@
 package com.personal.eventhandler.service.impl;
 
-import com.personal.eventhandler.model.weather.SaveWeatherDataRequest;
-import com.personal.eventhandler.model.weather.WeatherData;
 import com.personal.eventhandler.service.WeatherService;
+import com.weather.model.external.WeatherData;
+import com.weather.model.external.request.SaveWeatherDataRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

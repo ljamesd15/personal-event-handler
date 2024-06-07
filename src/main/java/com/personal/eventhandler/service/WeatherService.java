@@ -1,6 +1,7 @@
 package com.personal.eventhandler.service;
 
-import com.personal.eventhandler.model.weather.WeatherData;
+
+import com.weather.model.external.WeatherData;
 
 public interface WeatherService {
 

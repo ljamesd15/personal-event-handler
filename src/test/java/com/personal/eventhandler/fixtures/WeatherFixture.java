@@ -1,9 +1,9 @@
 package com.personal.eventhandler.fixtures;
 
-import com.personal.eventhandler.model.enums.Direction;
-import com.personal.eventhandler.model.weather.SaveWeatherDataRequest;
-import com.personal.eventhandler.model.weather.SensorMetadata;
-import com.personal.eventhandler.model.weather.WeatherData;
+import com.weather.model.external.SensorMetadata;
+import com.weather.model.external.WeatherData;
+import com.weather.model.external.enums.Direction;
+import com.weather.model.external.request.SaveWeatherDataRequest;
 
 import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
@@ -33,7 +33,7 @@ public interface WeatherFixture {
     SensorMetadata TEST_SENSOR_METADATA = SensorMetadata.builder()
             .latitude(TEST_LATITUDE)
             .longitude(TEST_LONGITUDE)
-            .id(TEST_SENSOR_ID)
+            .sensorId(TEST_SENSOR_ID)
             .tags(List.of(TEST_TAG_1, TEST_TAG_2))
             .location(TEST_LOCATION)
             .build();

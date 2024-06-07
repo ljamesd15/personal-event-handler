@@ -45,7 +45,6 @@ public class WeatherServiceImplTest {
         RestClient.RequestBodyUriSpec uriSpec = mock(RestClient.RequestBodyUriSpec.class);
         RestClient.RequestBodySpec bodySpec = mock(RestClient.RequestBodySpec.class);
         RestClient.ResponseSpec responseSpec = mock(RestClient.ResponseSpec.class);
-        ResponseEntity responseEntity = mock(ResponseEntity.class);
         when(restClient.post()).thenReturn(uriSpec);
         when(uriSpec.uri(TEST_SAVE_WEATHER_DATA_URI)).thenReturn(bodySpec);
         when(bodySpec.contentType(MediaType.APPLICATION_JSON)).thenReturn(bodySpec);
