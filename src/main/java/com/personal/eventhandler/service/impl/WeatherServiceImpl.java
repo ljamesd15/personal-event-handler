@@ -1,7 +1,6 @@
 package com.personal.eventhandler.service.impl;
 
 import com.personal.eventhandler.service.WeatherService;
-import com.weather.model.external.WeatherData;
 import com.weather.model.external.request.SaveWeatherDataRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,16 +25,13 @@ public class WeatherServiceImpl implements WeatherService {
     }
 
     @Override
-    public boolean saveWeatherData(final WeatherData weatherData) {
-        final SaveWeatherDataRequest body = SaveWeatherDataRequest.builder()
-                .weatherData(weatherData)
-                .build();
+    public boolean saveWeatherData(final SaveWeatherDataRequest weatherData) {
         ResponseEntity<Void> response;
         try {
             response = this.weatherClient.post()
                     .uri(SAVE_WEATHER_PATH)
                     .contentType(MediaType.APPLICATION_JSON)
-                    .body(body)
+                    .body(weatherData)
                     .retrieve()
                     .toBodilessEntity();
         } catch (WebClientResponseException ex) {

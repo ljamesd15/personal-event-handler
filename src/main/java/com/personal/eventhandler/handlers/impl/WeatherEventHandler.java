@@ -3,6 +3,7 @@ package com.personal.eventhandler.handlers.impl;
 import com.personal.eventhandler.handlers.EventHandler;
 import com.personal.eventhandler.service.WeatherService;
 import com.weather.model.external.WeatherData;
+import com.weather.model.external.request.SaveWeatherDataRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.Exchange;
 import org.springframework.amqp.rabbit.annotation.Queue;
@@ -17,7 +18,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Slf4j
-public class WeatherEventHandler implements EventHandler<WeatherData> {
+public class WeatherEventHandler implements EventHandler<SaveWeatherDataRequest> {
 
     private final WeatherService weatherService;
 
@@ -55,7 +56,7 @@ public class WeatherEventHandler implements EventHandler<WeatherData> {
             },
             errorHandler = "WeatherMessageErrorHandler"
     )
-    public void receiveMessage(@Payload final WeatherData weatherData) {
+    public void receiveMessage(@Payload final SaveWeatherDataRequest weatherData) {
         this.weatherService.saveWeatherData(weatherData);
     }
 }

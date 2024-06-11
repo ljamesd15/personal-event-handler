@@ -10,7 +10,6 @@ import org.springframework.web.reactive.function.client.WebClientResponseExcepti
 
 import static com.personal.eventhandler.fixtures.WeatherFixture.TEST_SAVE_WEATHER_DATA_URI;
 import static com.personal.eventhandler.fixtures.WeatherFixture.TEST_SAVE_WEATHER_REQUEST;
-import static com.personal.eventhandler.fixtures.WeatherFixture.TEST_WEATHER_DATA;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
@@ -34,7 +33,7 @@ public class WeatherServiceImplTest {
         when(responseEntity.getStatusCode()).thenReturn(HttpStatusCode.valueOf(200));
 
         WeatherService underTest = new WeatherServiceImpl(restClient);
-        boolean result = underTest.saveWeatherData(TEST_WEATHER_DATA);
+        boolean result = underTest.saveWeatherData(TEST_SAVE_WEATHER_REQUEST);
         assertTrue(result);
     }
 
@@ -52,7 +51,7 @@ public class WeatherServiceImplTest {
         when(bodySpec.retrieve()).thenThrow(WebClientResponseException.class);
 
         WeatherService underTest = new WeatherServiceImpl(restClient);
-        boolean result = underTest.saveWeatherData(TEST_WEATHER_DATA);
+        boolean result = underTest.saveWeatherData(TEST_SAVE_WEATHER_REQUEST);
         assertFalse(result);
     }
 }

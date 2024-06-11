@@ -3,7 +3,7 @@ package com.personal.eventhandler.handlers.impl;
 import com.personal.eventhandler.service.WeatherService;
 import org.junit.jupiter.api.Test;
 
-import static com.personal.eventhandler.fixtures.WeatherFixture.TEST_WEATHER_DATA;
+import static com.personal.eventhandler.fixtures.WeatherFixture.TEST_SAVE_WEATHER_REQUEST;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -15,8 +15,8 @@ public class WeatherEventHandlerTest {
         WeatherService weatherService = mock(WeatherService.class);
 
         WeatherEventHandler underTest = new WeatherEventHandler(weatherService);
-        underTest.receiveMessage(TEST_WEATHER_DATA);
+        underTest.receiveMessage(TEST_SAVE_WEATHER_REQUEST);
 
-        verify(weatherService, times(1)).saveWeatherData(TEST_WEATHER_DATA);
+        verify(weatherService, times(1)).saveWeatherData(TEST_SAVE_WEATHER_REQUEST);
     }
 }

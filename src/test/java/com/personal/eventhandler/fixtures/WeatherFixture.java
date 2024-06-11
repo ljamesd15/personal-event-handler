@@ -17,6 +17,7 @@ public interface WeatherFixture {
 
     ZonedDateTime TEST_ZONED_TIME = ZonedDateTime.of(2024, 1, 31, 12, 10, 8, 6, UTC);
     LocalDateTime TEST_LOCAL_TIME = TEST_ZONED_TIME.toLocalDateTime();
+    String TEST_WEATHER_DATA_ID = "66678d1d34ead05a95aa399c";
     double TEST_HUMIDITY = 61.6;
     double TEST_PRESSURE = 1024;
     double TEST_TEMPERATURE = 25.9;
@@ -39,6 +40,7 @@ public interface WeatherFixture {
             .build();
 
     WeatherData TEST_WEATHER_DATA = WeatherData.builder()
+            .id(TEST_WEATHER_DATA_ID)
             .time(TEST_ZONED_TIME)
             .humidity(TEST_HUMIDITY)
             .pressure(TEST_PRESSURE)
@@ -51,6 +53,14 @@ public interface WeatherFixture {
             .build();
 
     SaveWeatherDataRequest TEST_SAVE_WEATHER_REQUEST = SaveWeatherDataRequest.builder()
-            .weatherData(TEST_WEATHER_DATA)
+            .time(TEST_ZONED_TIME)
+            .humidity(TEST_HUMIDITY)
+            .pressure(TEST_PRESSURE)
+            .temperature(TEST_TEMPERATURE)
+            .luminosity(TEST_LUMINOSITY)
+            .uvIndex(TEST_UV_INDEX)
+            .windDirection(Direction.N)
+            .windSpeed(TEST_WIND_SPEED)
+            .sensorMetadata(TEST_SENSOR_METADATA)
             .build();
 }
