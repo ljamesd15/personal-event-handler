@@ -12,9 +12,6 @@ import org.springframework.web.client.RestClient;
 @SpringBootApplication
 public class PersonalEventHandlerApplication {
 
-    @Autowired @Qualifier("WeatherService")
-    RestClient restClient;
-
     public static void main(String[] args) {
         SpringApplication.run(PersonalEventHandlerApplication.class, args);
     }

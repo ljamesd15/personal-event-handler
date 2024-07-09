@@ -42,7 +42,7 @@ public class WeatherMessageErrorHandler implements RabbitListenerErrorHandler {
             log.info(message);
             this.retryMessageRecoverer.recover(message, e.getCause());
         } else {
-            log.error("Unrecoverable exception: {}", e.getCause().getMessage());
+            log.error("Unrecoverable exception", e);
             this.parkingLotMessageRecoverer.recover(message, e.getCause());
         }
         return null;
