@@ -3,6 +3,11 @@
 ## Local development
 To start RabbitMQ service
 1. ```$ systemctl start rabbitmq-server```
+2. If necessary enable 1883 port access
+   1. ```$ sudo ufw allow 1883 && sudo ufw enable```
+3. If running on WSL enable port forwarding for mQTT traffic
+   1. ```PS C:\WINDOWS\system32>  netsh interface portproxy add v4tov4 listenport=1883 listenaddress=0.0.0.0 connectport=1883 connectaddress=172.17.38.173```
+   2. ```PS C:\WINDOWS\system32> netsh interface portproxy show v4tov4```
 
 To start the service
 1. ```mvn clean package```
