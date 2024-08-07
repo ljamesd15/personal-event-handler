@@ -14,6 +14,7 @@ import static java.time.ZoneOffset.UTC;
 public interface WeatherFixture {
 
     String TEST_SAVE_WEATHER_DATA_URI = "/saveWeatherData";
+    String TEST_JWT_TOKEN = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJZSmRtYUR2VlRKeHRjV1JDdmtNaWtjOG9FTGdBVk5jeiIsImV4cCI6MTQ0MjQzMDA1NCwibmJmIjoxNDQyNDI2NDU0LCJpYXQiOjE0NDI0MjY0NTR9.WuLdHyvZGj2UAsnBl6YF9A4NqGQpaDftHjX18ooK8YY";
 
     ZonedDateTime TEST_ZONED_TIME = ZonedDateTime.of(2024, 1, 31, 12, 10, 8, 6, UTC);
     LocalDateTime TEST_LOCAL_TIME = TEST_ZONED_TIME.toLocalDateTime();

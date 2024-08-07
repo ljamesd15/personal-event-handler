@@ -1,5 +1,8 @@
 # Personal event handler
 
+## Authentication/Authorization
+The event handler uses JWT tokens for AuthN/Z when communicating with services fronted by API Gateways (e.g. Kong for Weather Service).
+
 ## Local development
 To start RabbitMQ service
 1. ```$ systemctl start rabbitmq-server```
@@ -12,7 +15,6 @@ To start RabbitMQ service
 To start the service
 1. ```mvn clean package```
 2. ```$ java -jar -Dspring.profiles.active=local target/event-handler-0.0.1-SNAPSHOT.jar com.personal.eventhandler.PersonalEventHandlerApplication.java```
-
 
 ## Making a change
 1. Make changes necessary and add unit tests

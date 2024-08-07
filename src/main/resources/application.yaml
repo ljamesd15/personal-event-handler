@@ -2,6 +2,9 @@ spring:
   jackson:
     serialization:
       FAIL_ON_EMPTY_BEANS: false
+weather:
+  jwt:
+    key-name: "weather-events-weather-service-jwt-key"
 rabbitmq:
   port: 5672
   weather:

@@ -1,8 +1,10 @@
 server:
   port: 8081
 weather:
-  base-url: http://127.0.0.1:8080
+  base-url: http://127.0.0.1:8000
+  jwt:
+    secret: ${WEATHER_JWT_SECRET}
 rabbitmq:
   host: localhost
   weather:
-    password: ${WEATHER_RABBITMQ_SERVICE_PASSWORD}
+    password: ${RABBITMQ_WEATHER_SERVICE_PASSWORD}
