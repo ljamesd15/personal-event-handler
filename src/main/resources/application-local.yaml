@@ -1,10 +1,10 @@
 server:
   port: 8081
 weather:
-  base-url: http://127.0.0.1:8000
+  base-url: http://host.docker.internal:8000
   jwt:
     secret: ${WEATHER_JWT_SECRET}
 rabbitmq:
-  host: localhost
+  host: host.docker.internal
   weather:
     password: ${RABBITMQ_WEATHER_SERVICE_PASSWORD}

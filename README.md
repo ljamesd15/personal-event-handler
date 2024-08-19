@@ -14,7 +14,7 @@ To start RabbitMQ service
 
 To start the service
 1. ```mvn clean package```
-2. ```$ java -jar -Dspring.profiles.active=local target/event-handler-0.0.1-SNAPSHOT.jar com.personal.eventhandler.PersonalEventHandlerApplication.java```
+2. ```$ java -jar -Dspring.profiles.active=local,ide target/event-handler.jar com.personal.eventhandler.PersonalEventHandlerApplication.java```
 
 ## Making a change
 1. Make changes necessary and add unit tests
