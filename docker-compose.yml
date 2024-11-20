@@ -1,0 +1,14 @@
+services:
+  app:
+    container_name: event-handler
+    build:
+      dockerfile: docker/event-handler.Dockerfile
+    ports:
+      - "8081:8081"
+      - "8011:8011"
+    # Allows for using latest jar without rebuilding image every time
+    volumes:
+      - ./target:/app
+    environment:
+      RABBITMQ_WEATHER_SERVICE_PASSWORD: ${RABBITMQ_WEATHER_SERVICE_PASSWORD}
+      WEATHER_JWT_SECRET: ${WEATHER_JWT_SECRET}

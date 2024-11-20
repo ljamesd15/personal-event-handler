@@ -41,6 +41,7 @@ public class JwtUtil {
     public String getWeatherToken() {
         final Instant currentInstant = Instant.now(this.clock);
         final Date currentTime = Date.from(Instant.now(this.clock));
+
         if (this.expiration == null || currentTime.after(this.expiration)) {
             this.expiration = currentTime;
             this.jwt = Jwts.builder()

@@ -1,12 +1,21 @@
 # Personal event handler
 
+## Tech stack
+Backend service: Java + Spring
+Metrics: Prometheus + Grafana
+
 ## Authentication/Authorization
 The event handler uses JWT tokens for AuthN/Z when communicating with services fronted by API Gateways (e.g. Kong for Weather Service).
+
+### Monitoring: Prometheus/Grafana
+First time setup may require port enabling for Prometheus to scrape metrics from services
+
+1. ```$ sudo ufw allow 8081 & sudo ufw enable```
 
 ## Local development
 To start RabbitMQ service
 1. ```$ systemctl start rabbitmq-server```
-2. If necessary enable 1883 port access
+2. If necessary enable port access for MQTT clients
    1. ```$ sudo ufw allow 1883 && sudo ufw allow 8883 && sudo ufw enable```
 3. If running on WSL enable port forwarding for mQTT traffic
    1. ```PS C:\WINDOWS\system32> netsh interface portproxy add v4tov4 listenport=1883 listenaddress=0.0.0.0 connectport=1883 connectaddress=$(wsl -d "Ubuntu-24.04" hostname -I)```

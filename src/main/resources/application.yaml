@@ -1,14 +1,21 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    health:
+      show-details: always
+server:
+  port: 8081
 spring:
   jackson:
     serialization:
       FAIL_ON_EMPTY_BEANS: false
-weather:
-  jwt:
-    key-name: "weather-events-weather-service-jwt-key"
 rabbitmq:
   port: 5672
   weather:
     username: WeatherService
+    password: ${RABBITMQ_WEATHER_SERVICE_PASSWORD}
     vhost: weather
     queueName: weather_queue
     exchangeName: weather_exchange
@@ -18,3 +25,7 @@ rabbitmq:
     errorExchangeName: weather_delay_exchange
     parkingLotExchangeName: weather_parking_lot_exchange
     parkingLotQueueName: weather_parking_lot_queue
+weather:
+  jwt:
+    key-name: "weather-events-weather-service-jwt-key"
+    secret: ${WEATHER_JWT_SECRET}
