@@ -19,7 +19,7 @@ import static com.personal.eventhandler.utils.Constants.AUTHORIZATION_HEADER;
 @Slf4j
 public class WeatherServiceImpl implements WeatherService {
 
-    private static final String SAVE_WEATHER_PATH = "/saveWeatherData";
+    private static final String SAVE_WEATHER_PATH = "/weather/saveWeatherData";
 
     private final RestClient weatherClient;
     private final JwtUtil jwtUtil;
