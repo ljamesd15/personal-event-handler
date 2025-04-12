@@ -10,6 +10,15 @@ server:
   servlet:
     context-path: /event-handler
 spring:
+  cloud:
+    aws:
+      credentials:
+        access-key: ${AWS_WEATHER_SERVICE_ACCESS_KEY}
+        secret-key: ${AWS_WEATHER_SERVICE_SECRET_KEY}
+      region:
+        static: us-west-2
+      sqs:
+        queue-name: "https://sqs.us-west-2.amazonaws.com/872167319659/WeatherQueue"
   jackson:
     serialization:
       FAIL_ON_EMPTY_BEANS: false

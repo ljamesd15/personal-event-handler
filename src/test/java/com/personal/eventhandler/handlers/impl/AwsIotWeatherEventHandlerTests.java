@@ -8,13 +8,12 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
-public class WeatherEventHandlerTest {
-
+public class AwsIotWeatherEventHandlerTests {
     @Test
     public void receiveMessageTest() {
         WeatherService weatherService = mock(WeatherService.class);
 
-        WeatherEventHandler underTest = new WeatherEventHandler(weatherService);
+        AwsIotWeatherEventHandler underTest = new AwsIotWeatherEventHandler(weatherService);
         underTest.receiveMessage(TEST_SAVE_WEATHER_REQUEST);
 
         verify(weatherService, times(1)).saveWeatherData(TEST_SAVE_WEATHER_REQUEST);
